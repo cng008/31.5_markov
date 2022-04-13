@@ -1,0 +1,22 @@
+{
+  "name": "31.5_markov",
+  "version": "1.0.0",
+  "description": "algorithm for generating realistic machine-made text from an original source text",
+  "main": "makeText.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cng008/31.5_markov.git"
+  },
+  "author": "Christien Ng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cng008/31.5_markov/issues"
+  },
+  "homepage": "https://github.com/cng008/31.5_markov#readme",
+  "dependencies": {
+    "axios": "^0.26.1"
+  }
+}
