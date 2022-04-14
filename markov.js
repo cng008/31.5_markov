@@ -34,7 +34,7 @@ class MarkovMachine {
   // otherwise, restart at step 1
 
   /** Pick a random number for following word from array */
-  randomInt(max) {
+  static randomInt(max) {
     return parseInt(Math.random() * max);
   }
 
@@ -42,23 +42,23 @@ class MarkovMachine {
   makeText(numWords = 100) {
     // pick a random key to begin
     const chain = this.makeChains();
-    let word = this.words[this.randomInt(this.words.length)];
+    let word = this.words[MarkovMachine.randomInt(this.words.length)];
     let outputString = `${word} `;
 
     // Get mapped words at random
     // produce markov chain until reaching termination word
     for (let i = 1; i < numWords; i++) {
-      word = chain[word][this.randomInt(chain[word].length)];
+      word = chain[word][MarkovMachine.randomInt(chain[word].length)];
       if (word) {
         outputString += `${word} `;
       } else {
-        return this.prettifyOutput(outputString);
+        return MarkovMachine.prettifyOutput(outputString);
       }
     }
-    return this.prettifyOutput(outputString);
+    return MarkovMachine.prettifyOutput(outputString);
   }
 
-  prettifyOutput(str) {
+  static prettifyOutput(str) {
     // capitalize first letter
     let prettyStr = str[0].toUpperCase();
     // add the rest of the string WITHOUT the trailing space
@@ -68,6 +68,11 @@ class MarkovMachine {
     return prettyStr;
   }
 }
+
+// let mm = new MarkovMachine('the cat in the hat is in the hat');
+
+// console.log(mm.makeChains());
+// console.log(mm.makeText());
 
 module.exports = {
   MarkovMachine
